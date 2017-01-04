@@ -81,7 +81,7 @@ void meniu(char mat[41][71])
     char densitate[]="9. Densitate";
     centrare(mat,densitate,12,29);
     char consum[]="10. Consum combustibil";
-    centrare(mat,consum,22,29);
+    centrare(mat,consum,22,31);
 }
 void clear_screen(char fill = ' ')
 {
@@ -167,6 +167,57 @@ void volum(char mat[41][71],char sir[],int dim)
     centrare(mat,din8,12,21);
     char din9[]="7. Litri";
     centrare(mat,din9,8,23);
+}
+void viteza(char mat[41][71],char sir[],int dim)
+{
+    centrare(mat,sir,dim,7);
+    char din1[]="1. Metri pe secunda";
+    centrare(mat,din1,19,11);
+    char din2[]="2. Kilometri pe ora";
+    centrare(mat,din2,19,13);
+    char din3[]="3. Mile pe ora";
+    centrare(mat,din3,14,15);
+
+}
+void temperatura(char mat[41][71],char sir[],int dim)
+{
+    centrare(mat,sir,dim,7);
+    char din1[]="1. Grade Celsius";
+    centrare(mat,din1,16,11);
+    char din2[]="2. Grade Kelvin";
+    centrare(mat,din2,15,13);
+    char din3[]="3. Grade Fahrenheit";
+    centrare(mat,din3,19,15);
+    char din4[]="4. Grade Rankine";
+    centrare(mat,din4,16,17);
+}
+void masa(char mat[41][71],char sir[],int dim)
+{
+    centrare(mat,sir,dim,7);
+    char din1[]="1. Miligrame";
+    centrare(mat,din1,12,11);
+    char din2[]="2. Grame";
+    centrare(mat,din2,8,13);
+    char din3[]="3. Kilograme";
+    centrare(mat,din3,12,15);
+    char din4[]="4. Tone";
+    centrare(mat,din4,7,17);
+    char din6[]="5. Pounds";
+    centrare(mat,din6,9,19);
+}
+void energie(char mat[41][71],char sir[],int dim)
+{
+    centrare(mat,sir,dim,7);
+    char din1[]="1. Calorii";
+    centrare(mat,din1,10,11);
+    char din2[]="2. Jouli";
+    centrare(mat,din2,8,13);
+    char din3[]="3. Kilocalorii";
+    centrare(mat,din3,14,15);
+    char din4[]="4. Kilojouli";
+    centrare(mat,din4,12,17);
+    char din6[]="5. Watt-ora";
+    centrare(mat,din6,11,19);
 }
 void convM(long double &v1,int y)
 {
@@ -272,10 +323,91 @@ void convVolum2(long double &v1,int m)
     if(m==6)
         v1=v1*1000;
 }
+void convViteza(long double &v1,int y)
+{
+    if(y==1)
+        v1=v1/0.2777777;
+    if(y==3)
+        v1=v1/0.6215;
+}
+void convViteza2(long double &v1,int m)
+{
+    if(m==1)
+        v1=v1*0.2777777;
+    if(m==3)
+        v1=v1*0.6215;
+}
+void convTemperatura1(long double &v1,int y)
+{
+    if(y==2)
+        v1=v1-273.15;
+    if(y==3)
+        v1=(v1-32)/1.8;
+    if(y==4)
+        v1=(v1-491.67)/1.8;
+}
+void convTemperatura2(long double &v1,int m)
+{
+    if(m==2)
+        v1=v1+273.15;
+    if(m==3)
+        v1=v1*1.8+32;
+    if(m==4)
+        v1=v1*1.8+491.67;
+}
+void convMasa(long double &v1,int y)
+{
+    if(y==1)
+        v1=v1/1000000;
+    if(y==2)
+        v1=v1/1000;
+    if(y==4)
+        v1=v1*1000;
+    if(y==5)
+        v1=v1/2.2046;
+
+}
+void convMasa2(long double &v1,int m)
+{
+    if(m==1)
+        v1=v1*1000000;
+    if(m==2)
+        v1=v1*1000;
+    if(m==4)
+        v1=v1/1000;
+    if(m==5)
+        v1=v1*2.2046;
+}
+void convEnergie(long double &v1,int y)
+{
+    if(y==1)
+        v1=v1*4.184;
+    if(y==3)
+        {
+            v1=v1/1000;
+            v1=v1*4.184;
+        }
+    if(y==4)
+        v1=v1*1000;
+    if(y==5)
+        v1=v1*3600;
+}
+void convEnergie2(long double &v1,int m)
+{
+    if(m==1)
+        v1=v1/4.184;
+    if(m==3)
+        {
+            v1=v1/4.184;
+            v1=v1/1000;
+        }
+    if(m==4)
+        v1=v1/1000;
+    if(m==5)
+        v1=v1/3600;
+}
 int main()
 {
-
-
     int i,j,n,m,y,ok;
     char mat[41][71],c[]=" ";
     char sir[]="Converteste din:";
@@ -394,6 +526,170 @@ int main()
         cin>>v1;
         convVolum(v1,y);
         convVolum2(v1,m);
+        SetCursorPosition(31, 11);
+        cout<<v1;
+        SetCursorPosition(8, 14);
+        cin>>ok;
+        while((ok!=1)&&(ok!=2))
+        {
+            clear_screen();
+            matrice(mat);
+            centrare(mat,"RASPUNS INVALID",15,7);
+            centrare(mat,"Mai incearca",12,9);
+            aliniat(mat,"Pentru a face alta convertire apasati 1 urmat de ENTER",54,30);
+            aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
+            afisare(mat);
+            SetCursorPosition(35, 11);
+            cin>>ok;
+        }
+    }
+    if(n==4)
+    {
+        viteza(mat,sir,16);
+        afisare(mat);
+        SetCursorPosition(44, 7);
+        cin>>y;
+        strcpy(sir,"In:");
+        clear_screen();
+        matrice(mat);
+        viteza(mat,sir,3);
+        afisare(mat);
+        SetCursorPosition(37, 7);
+        cin>>m;
+        clear_screen();
+        matrice(mat);
+        aliniat(mat,"Valoare de convertit:",21,7);
+        aliniat(mat,"Valoare convertita:",19,11);
+        aliniat(mat,"Pentru a face alta convertire apasati 1 urmat de ENTER",54,30);
+        aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
+        afisare(mat);
+        SetCursorPosition(31, 7);
+        cin>>v1;
+        convViteza(v1,y);
+        convViteza2(v1,m);
+        SetCursorPosition(31, 11);
+        cout<<v1;
+        SetCursorPosition(8, 14);
+        cin>>ok;
+        while((ok!=1)&&(ok!=2))
+        {
+            clear_screen();
+            matrice(mat);
+            centrare(mat,"RASPUNS INVALID",15,7);
+            centrare(mat,"Mai incearca",12,9);
+            aliniat(mat,"Pentru a face alta convertire apasati 1 urmat de ENTER",54,30);
+            aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
+            afisare(mat);
+            SetCursorPosition(35, 11);
+            cin>>ok;
+        }
+    }
+    if(n==5)
+    {
+        temperatura(mat,sir,16);
+        afisare(mat);
+        SetCursorPosition(44, 7);
+        cin>>y;
+        strcpy(sir,"In:");
+        clear_screen();
+        matrice(mat);
+        temperatura(mat,sir,3);
+        afisare(mat);
+        SetCursorPosition(37, 7);
+        cin>>m;
+        clear_screen();
+        matrice(mat);
+        aliniat(mat,"Valoare de convertit:",21,7);
+        aliniat(mat,"Valoare convertita:",19,11);
+        aliniat(mat,"Pentru a face alta convertire apasati 1 urmat de ENTER",54,30);
+        aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
+        afisare(mat);
+        SetCursorPosition(31, 7);
+        cin>>v1;
+        convTemperatura1(v1,y);
+        convTemperatura2(v1,m);
+        SetCursorPosition(31, 11);
+        cout<<v1;
+        SetCursorPosition(8, 14);
+        cin>>ok;
+        while((ok!=1)&&(ok!=2))
+        {
+            clear_screen();
+            matrice(mat);
+            centrare(mat,"RASPUNS INVALID",15,7);
+            centrare(mat,"Mai incearca",12,9);
+            aliniat(mat,"Pentru a face alta convertire apasati 1 urmat de ENTER",54,30);
+            aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
+            afisare(mat);
+            SetCursorPosition(35, 11);
+            cin>>ok;
+        }
+    }
+    if(n==6)
+    {
+        masa(mat,sir,16);
+        afisare(mat);
+        SetCursorPosition(44, 7);
+        cin>>y;
+        strcpy(sir,"In:");
+        clear_screen();
+        matrice(mat);
+        masa(mat,sir,3);
+        afisare(mat);
+        SetCursorPosition(37, 7);
+        cin>>m;
+        clear_screen();
+        matrice(mat);
+        aliniat(mat,"Valoare de convertit:",21,7);
+        aliniat(mat,"Valoare convertita:",19,11);
+        aliniat(mat,"Pentru a face alta convertire apasati 1 urmat de ENTER",54,30);
+        aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
+        afisare(mat);
+        SetCursorPosition(31, 7);
+        cin>>v1;
+        convMasa(v1,y);
+        convMasa2(v1,m);
+        SetCursorPosition(31, 11);
+        cout<<v1;
+        SetCursorPosition(8, 14);
+        cin>>ok;
+        while((ok!=1)&&(ok!=2))
+        {
+            clear_screen();
+            matrice(mat);
+            centrare(mat,"RASPUNS INVALID",15,7);
+            centrare(mat,"Mai incearca",12,9);
+            aliniat(mat,"Pentru a face alta convertire apasati 1 urmat de ENTER",54,30);
+            aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
+            afisare(mat);
+            SetCursorPosition(35, 11);
+            cin>>ok;
+        }
+    }
+    if(n==7)
+    {
+        energie(mat,sir,16);
+        afisare(mat);
+        SetCursorPosition(44, 7);
+        cin>>y;
+        strcpy(sir,"In:");
+        clear_screen();
+        matrice(mat);
+        energie(mat,sir,3);
+        afisare(mat);
+        SetCursorPosition(37, 7);
+        cin>>m;
+        clear_screen();
+        matrice(mat);
+        aliniat(mat,"Valoare de convertit:",21,7);
+        aliniat(mat,"Valoare convertita:",19,11);
+        aliniat(mat,"Pentru a face alta convertire apasati 1 urmat de ENTER",54,30);
+        aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
+        afisare(mat);
+        SetCursorPosition(31, 7);
+        cin>>v1;
+        convEnergie(v1,y);
+        convEnergie2(v1,m);
         SetCursorPosition(31, 11);
         cout<<v1;
         SetCursorPosition(8, 14);

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1483555098 source:c:\users\user\desktop\conv\main.cpp
+	<iostream>
+	<string.h>
+	<windows.h>
+	<stdio.h>
+	<cstdlib>
+	<stdlib.h>
+
