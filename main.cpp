@@ -180,7 +180,7 @@ void timp(char mat[41][71],char sir[],int dim)
     char din3[]="3. Ore";
     centrare(mat,din3,6,15);
     char din4[]="4. Zile";
-    centrare(mat,din4,12,17);
+    centrare(mat,din4,7,17);
     char din7[]="5. Saptamani";
     centrare(mat,din7,12,19);
     char din6[]="6. luni";
@@ -262,9 +262,9 @@ void densitate(char mat[41][71],char sir[],int dim)
     char din3[]="3. Miligrame pe centimetri cubi";
     centrare(mat,din3,31,15);
     char din4[]="4. Kilogram pe metru cub";
-    centrare(mat,din4,11,17);
+    centrare(mat,din4,24,17);
     char din6[]="5. Tona pe metru cub";
-    centrare(mat,din6,11,19);
+    centrare(mat,din6,20,19);
 }
 void consum(char mat[41][71],char sir[],int dim)
 {
@@ -556,23 +556,51 @@ int main()
     matrice(mat);
     meniu(mat);
     afisare(mat);
+    do
+    {
     SetCursorPosition(35, 11);
     cin>>n;
+    if((n<1)||(n>11))
+        {
+            centrare(mat,"NUMAR INVALID",13,10);
+            clear_screen();
+            afisare(mat);
+        }
+    }while((n<1)||(n>11));
     clear_screen();
     matrice(mat);
     if(n==1)
     {
         lungime(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>8))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>8));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         lungime(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>8))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>8));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -598,22 +626,41 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
     if(n==2)
     {
         arie(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>8))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>8));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         arie(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>8))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>8));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -639,22 +686,41 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
     if(n==3)
     {
         volum(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>7))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>7));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         volum(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>7))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>7));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -680,22 +746,41 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
     if(n==4)
     {
         timp(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>7))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>7));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         timp(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>7))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>7));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -721,22 +806,41 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
     if(n==5)
     {
         viteza(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>3))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>3));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         viteza(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>3))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>3));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -762,22 +866,41 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
     if(n==6)
     {
         temperatura(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>4))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>4));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         temperatura(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>4))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>4));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -803,22 +926,41 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
     if(n==7)
     {
         masa(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>5))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>5));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         masa(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>5))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>5));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -844,22 +986,41 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
     if(n==8)
     {
         energie(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>5))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>5));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         energie(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>5))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>5));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -885,22 +1046,41 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
     if(n==9)
     {
         presiune(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>4))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>4));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         presiune(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>4))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>4));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -926,22 +1106,41 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
     if(n==10)
     {
         densitate(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>5))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>5));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         densitate(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>5))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>5));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -967,22 +1166,41 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
      if(n==11)
     {
         consum(mat,sir,16);
         afisare(mat);
+
+        do
+        {
         SetCursorPosition(44, 7);
         cin>>y;
+        if((y<1)||(y>3))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((y<1)||(y>3));
         strcpy(sir,"In:");
         clear_screen();
         matrice(mat);
         consum(mat,sir,3);
         afisare(mat);
+        do
+        {
         SetCursorPosition(37, 7);
         cin>>m;
+        if((m<1)||(m>3))
+        {
+            centrare(mat,"NUMAR INVALID",13,9);
+            clear_screen();
+            afisare(mat);
+        }
+        }while((m<1)||(m>3));
         clear_screen();
         matrice(mat);
         aliniat(mat,"Valoare de convertit:",21,7);
@@ -1008,7 +1226,7 @@ int main()
             aliniat(mat,"Pentru iesi din aplicatie apasati 2 urmat de ENTER",50,32);
             afisare(mat);
             SetCursorPosition(35, 11);
-            cin>>ok;
+            cin>>ok;SetCursorPosition(35, 11);
         }
     }
     }while(ok!=2);
